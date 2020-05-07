@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Update User</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+
+<body>
+	<div class="container my-5">
+		<h3>Update Student</h3>
+		<div class="card">
+			<div class="card-body">
+				<div class="col-md-8">
+					<form action="#"
+						th:action="@{/students/update/{studentId}(studentId=${student.studentId})}"
+						th:object="${student}" method="post">
+						<div class="row">
+							<div class="form-group col-md-6">
+								<label for="studentName" class="col-form-label">Student name:</label> <input
+									type="text" th:field="*{studentName}" class="form-control" id="studentName"
+									placeholder="Enter student name"> <span
+									th:if="${#fields.hasErrors('studentName')}" th:errors="*{studentName}"
+									class="text-danger"></span>
+							</div>
+							<div class="form-group col-md-8">
+								<label for="studentEmail" class="col-form-label">Student email:</label> <input
+									type="text" th:field="*{studentEmail}" class="form-control" id="studentEmail"
+									placeholder="Enter student email"> <span
+									th:if="${#fields.hasErrors('studentEmail')}" th:errors="*{studentEmail}"
+									class="text-danger"></span>
+							</div>
+							<div class="form-group col-md-8">
+								<label for="studentPhoneNumber" class="col-form-label">Student phone number</label> <input
+									type="text" th:field="*{studentPhoneNumber}" class="form-control"
+									id="studentPhoneNumber" placeholder="studentPhoneNumber"> <span
+									th:if="${#fields.hasErrors('studentPhoneNumber')}" th:errors="studentPhoneNumber"
+									class="text-danger"></span>
+							</div>
+
+							<div class="form-group col-md-8">
+								<input type="submit" class="btn btn-primary"
+									value="Update Student">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
